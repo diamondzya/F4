@@ -3,131 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Player Showcase</title>
+    <title>Media Player - Video & Music Player</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom CSS for additional styling */
-        .media-card {
-            transition: transform 0.2s, box-shadow 0.2s;
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: 'Arial', sans-serif;
         }
-        .media-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        .media-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            margin: 20px;
+            max-width: 800px;
+            width: 100%;
         }
         video, audio {
             width: 100%;
-            border-radius: 8px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .controls {
+            text-align: center;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            .media-container {
+                padding: 15px;
+                margin: 10px;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-100 min-h-screen py-8">
-    <div class="container mx-auto px-4">
-        <header class="text-center mb-8">
-            <h1 class="text-4xl font-bold text-gray-800">Multimodal Media Player</h1>
-            <p class="text-gray-600 mt-2">Experience 4 engaging videos and 4 immersive sounds. Upload your own media by replacing the source URLs.</p>
-        </header>
+<body>
+    <h1>Custom Media Player: Enjoy Your Video & Music</h1>
 
-        <!-- Videos Section -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-semibold text-gray-700 mb-6">Videos</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Video 1 -->
-                <div class="media-card bg-white p-4 rounded-lg shadow">
-                    <h3 class="text-lg font-medium mb-2">Epic Nature</h3>
-                    <video controls class="border">
-                        <source src="./videos/dedrick.mp4" type="video/mp4">
-                      
-                    </video>
-                </div>
-                <!-- Video 2 -->
-                <div class="media-card bg-white p-4 rounded-lg shadow">
-                    <h3 class="text-lg font-medium mb-2">Urban Exploration</h3>
-                    <video controls class="border">
-                        <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4" type="video/mp4">
-                        
-                    </video>
-                </div>
-                <!-- Video 3 -->
-                <div class="media-card bg-white p-4 rounded-lg shadow">
-                    <h3 class="text-lg font-medium mb-2">Adventure Journey</h3>
-                    <video controls class="border">
-                        <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_5mb.mp4" type="video/mp4">
-                        
-                    </video>
-                </div>
-                <!-- Video 4 -->
-                <div class="media-card bg-white p-4 rounded-lg shadow">
-                    <h3 class="text-lg font-medium mb-2">Creative Time-lapse</h3>
-                    <video controls class="border">
-                        <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_10mb.mp4" type="video/mp4">
+    <div class="media-container">
+        <h2 class="text-white text-center mb-4">Video Section</h2>
+        <video id="videoPlayer" controls preload="metadata">
+            <source src="./videos/dedrick.mp4" type="video/mp4">
+          
+        </video>
 
-                    </video>
-                </div>
-            </div>
-        </section>
+        <h2 class="text-white text-center mb-4 mt-6">Music Section</h2>
+        <audio id="audioPlayer" controls preload="metadata">
+            <source src="./audios/buko.mp3" type="audio/wav">
+          
+        </audio>
 
-        <!-- Audio Section -->
-        <section>
-            <h2 class="text-3xl font-semibold text-gray-700 mb-6">Ambient Sounds</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Audio 1 -->
-                <div class="media-card bg-white p-4 rounded-lg shadow">
-                    <h3 class="text-lg font-medium mb-2">Ocean Waves</h3>
-                    <audio controls class="w-full">
-                        <source src="https://www.soundjay.com/misc/sounds/ocean-waves.mp3" type="audio/mpeg">
-                        Your browser does not support the audio tag.
-                    </audio>
-                </div>
-                <!-- Audio 2 -->
-                <div class="media-card bg-white p-4 rounded-lg shadow">
-                    <h3 class="text-lg font-medium mb-2">Forest Ambience</h3>
-                    <audio controls class="w-full">
-                        <source src="https://www.soundjay.com/misc/sounds/forest.mp3" type="audio/mpeg">
-                        Your browser does not support the audio tag.
-                    </audio>
-                </div>
-                <!-- Audio 3 -->
-                <div class="media-card bg-white p-4 rounded-lg shadow">
-                    <h3 class="text-lg font-medium mb-2">Rain Sounds</h3>
-                    <audio controls class="w-full">
-                        <source src="https://www.soundjay.com/misc/sounds/rain.mp3" type="audio/mpeg">
-                        Your browser does not support the audio tag.
-                    </audio>
-                </div>
-                <!-- Audio 4 -->
-                <div class="media-card bg-white p-4 rounded-lg shadow">
-                    <h3 class="text-lg font-medium mb-2">City Traffic</h3>
-                    <audio controls class="w-full">
-                        <source src="https://www.soundjay.com/misc/sounds/traffic.mp3" type="audio/mpeg">
-                        Your browser does not support the audio tag.
-                    </audio>
-                </div>
-            </div>
-        </section>
+        <div class="controls">
+            <button onclick="playPauseVideo()">Play/Pause Video</button>
+            <button onclick="restartVideo()">Restart Video</button>
+            <button onclick="playPauseAudio()">Play/Pause Music</button>
+            <button onclick="restartAudio()">Restart Music</button>
+        </div>
     </div>
 
     <script>
-        // Optional JavaScript for enhanced interactivity
-        document.addEventListener('DOMContentLoaded', function() {
-            const videos = document.querySelectorAll('video');
-            const audios = document.querySelectorAll('audio');
+        function playPauseVideo() {
+            const video = document.getElementById('videoPlayer');
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
 
-            // Play button enhancement for videos to handle loading
-            videos.forEach(video => {
-                video.addEventListener('play', () => {
-                    console.log('Video playing:', video.previousElementSibling.textContent);
-                });
-            });
+        function restartVideo() {
+            const video = document.getElementById('videoPlayer');
+            video.currentTime = 0;
+            video.play();
+        }
 
-            // Similar for audios
-            audios.forEach(audio => {
-                audio.addEventListener('play', () => {
-                    console.log('Audio playing:', audio.previousElementSibling.textContent);
-                });
-            });
-        });
+        function playPauseAudio() {
+            const audio = document.getElementById('audioPlayer');
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+
+        function restartAudio() {
+            const audio = document.getElementById('audioPlayer');
+            audio.currentTime = 0;
+            audio.play();
+        }
     </script>
 </body>
 </html>
 </content>
 </create_file>
+</thinking>
