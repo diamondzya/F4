@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Player Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS for additional styling */
+        .media-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .media-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        video, audio {
+            width: 100%;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen py-8">
+    <div class="container mx-auto px-4">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800">Multimodal Media Player</h1>
+            <p class="text-gray-600 mt-2">Experience 4 engaging videos and 4 immersive sounds. Upload your own media by replacing the source URLs.</p>
+        </header>
+
+        <!-- Videos Section -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-semibold text-gray-700 mb-6">Videos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Video 1 -->
+                <div class="media-card bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-lg font-medium mb-2">Epic Nature</h3>
+                    <video controls class="border">
+                        <source src="./videos/dedrick.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <!-- Video 2 -->
+                <div class="media-card bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-lg font-medium mb-2">Urban Exploration</h3>
+                    <video controls class="border">
+                        <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <!-- Video 3 -->
+                <div class="media-card bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-lg font-medium mb-2">Adventure Journey</h3>
+                    <video controls class="border">
+                        <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_5mb.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <!-- Video 4 -->
+                <div class="media-card bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-lg font-medium mb-2">Creative Time-lapse</h3>
+                    <video controls class="border">
+                        <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_10mb.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Audio Section -->
+        <section>
+            <h2 class="text-3xl font-semibold text-gray-700 mb-6">Ambient Sounds</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Audio 1 -->
+                <div class="media-card bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-lg font-medium mb-2">Ocean Waves</h3>
+                    <audio controls class="w-full">
+                        <source src="https://www.soundjay.com/misc/sounds/ocean-waves.mp3" type="audio/mpeg">
+                        Your browser does not support the audio tag.
+                    </audio>
+                </div>
+                <!-- Audio 2 -->
+                <div class="media-card bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-lg font-medium mb-2">Forest Ambience</h3>
+                    <audio controls class="w-full">
+                        <source src="https://www.soundjay.com/misc/sounds/forest.mp3" type="audio/mpeg">
+                        Your browser does not support the audio tag.
+                    </audio>
+                </div>
+                <!-- Audio 3 -->
+                <div class="media-card bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-lg font-medium mb-2">Rain Sounds</h3>
+                    <audio controls class="w-full">
+                        <source src="https://www.soundjay.com/misc/sounds/rain.mp3" type="audio/mpeg">
+                        Your browser does not support the audio tag.
+                    </audio>
+                </div>
+                <!-- Audio 4 -->
+                <div class="media-card bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-lg font-medium mb-2">City Traffic</h3>
+                    <audio controls class="w-full">
+                        <source src="https://www.soundjay.com/misc/sounds/traffic.mp3" type="audio/mpeg">
+                        Your browser does not support the audio tag.
+                    </audio>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Optional JavaScript for enhanced interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            const videos = document.querySelectorAll('video');
+            const audios = document.querySelectorAll('audio');
+
+            // Play button enhancement for videos to handle loading
+            videos.forEach(video => {
+                video.addEventListener('play', () => {
+                    console.log('Video playing:', video.previousElementSibling.textContent);
+                });
+            });
+
+            // Similar for audios
+            audios.forEach(audio => {
+                audio.addEventListener('play', () => {
+                    console.log('Audio playing:', audio.previousElementSibling.textContent);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+</content>
+</create_file>
